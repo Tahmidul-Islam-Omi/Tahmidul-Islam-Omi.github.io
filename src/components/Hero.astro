@@ -1,0 +1,78 @@
+---
+import { SITE, SOCIALS } from "../config";
+---
+
+<section
+  class="relative mx-auto flex min-h-screen max-w-5xl flex-col justify-center px-6 py-32"
+>
+  <!-- Subtle accent glow in the background -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -top-20 left-1/2 -z-10 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-accent-600/15 blur-[120px]"
+  >
+  </div>
+
+  <!-- WorldSkills highlight badge -->
+  <a
+    href="#experience"
+    class="group mb-7 inline-flex w-fit items-center gap-2 rounded-full border border-accent-500/30 bg-accent-500/10 px-4 py-1.5 text-sm text-accent-400 transition-colors hover:border-accent-500/60"
+  >
+    <span class="relative flex size-2">
+      <span
+        class="absolute inline-flex size-full animate-ping rounded-full bg-accent-400 opacity-75"
+      ></span>
+      <span class="relative inline-flex size-2 rounded-full bg-accent-500"></span>
+    </span>
+    🏆 Representing Bangladesh at WorldSkills 2026, Shanghai
+  </a>
+
+  <p class="mb-4 font-mono text-sm text-[var(--text-muted)]">
+    Hi, my name is
+  </p>
+
+  <h1
+    class="text-4xl font-semibold leading-[1.05] tracking-tight text-[var(--text)] sm:text-5xl"
+  >
+    {SITE.name}.
+  </h1>
+  <h2
+    class="mt-2 text-3xl font-semibold leading-tight tracking-tight text-[var(--text-muted)] sm:text-4xl"
+  >
+    I build <span class="text-accent-500">AI-powered, full-stack</span> web apps.
+  </h2>
+
+  <p class="mt-6 max-w-xl text-lg leading-relaxed text-[var(--text-muted)]">
+    A Computer Science & Engineering student at <span class="text-[var(--text)]"
+      >BUET</span
+    > and full-stack developer, focused on shipping reliable products with React,
+    Node, FastAPI, and applied AI.
+  </p>
+
+  <!-- CTAs -->
+  <div class="mt-9 flex flex-wrap items-center gap-3">
+    <a
+      href="#projects"
+      class="rounded-lg bg-accent-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-500"
+    >
+      View Projects
+    </a>
+    {
+      SOCIALS.resume && (
+        <a
+          href={SOCIALS.resume}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-lg border border-[var(--border)] bg-[var(--surface)] px-5 py-2.5 text-sm font-medium text-[var(--text)] transition-colors hover:border-accent-500/60"
+        >
+          Download Resume
+        </a>
+      )
+    }
+    <a
+      href="#contact"
+      class="px-2 py-2.5 text-sm font-medium text-[var(--text-muted)] transition-colors hover:text-accent-500"
+    >
+      Get in touch &rarr;
+    </a>
+  </div>
+</section>

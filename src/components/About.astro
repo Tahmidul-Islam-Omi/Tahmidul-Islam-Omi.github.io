@@ -1,0 +1,66 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { SITE } from "../config";
+
+// TODO: This bio was drafted from your resume — edit it to sound like you.
+---
+
+<section id="about" class="mx-auto max-w-5xl scroll-mt-20 px-6 py-24">
+  <SectionHeading num="01" title="About" />
+
+  <div class="grid gap-10 md:grid-cols-[3fr_2fr]">
+    <div class="space-y-4 text-lg leading-relaxed text-[var(--text-muted)]">
+      <p>
+        I'm a Computer Science & Engineering student at <span
+          class="text-[var(--text)]">BUET</span
+        >, one of the most competitive engineering programs in Bangladesh, and a
+        full-stack developer who enjoys turning hard problems into clean,
+        usable products.
+      </p>
+      <p>
+        My work spans <span class="text-[var(--text)]"
+          >AI-powered applications</span
+        > — RAG pipelines, LangChain agents, and LLM-driven features — and the full-stack
+        web that surrounds them, from React and Next.js frontends to FastAPI and
+        Node backends.
+      </p>
+      <p>
+        Recently I was <span class="text-[var(--text)]"
+          >national champion in Web Technologies</span
+        >, and I'll be representing Bangladesh at <span class="text-accent-500"
+          >WorldSkills 2026 in Shanghai</span
+        >. I love competitive problem-solving, having solved 120+ algorithm
+        problems along the way.
+      </p>
+    </div>
+
+    <!-- Quick facts card -->
+    <aside
+      class="h-fit rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6"
+    >
+      <h3
+        class="mb-4 font-mono text-xs uppercase tracking-widest text-[var(--text-faint)]"
+      >
+        Quick facts
+      </h3>
+      <dl class="space-y-3 text-sm">
+        <div class="flex justify-between gap-4">
+          <dt class="text-[var(--text-muted)]">Based in</dt>
+          <dd class="text-right text-[var(--text)]">{SITE.location}</dd>
+        </div>
+        <div class="flex justify-between gap-4">
+          <dt class="text-[var(--text-muted)]">University</dt>
+          <dd class="text-right text-[var(--text)]">BUET — CSE</dd>
+        </div>
+        <div class="flex justify-between gap-4">
+          <dt class="text-[var(--text-muted)]">Focus</dt>
+          <dd class="text-right text-[var(--text)]">Full-stack · AI</dd>
+        </div>
+        <div class="flex justify-between gap-4">
+          <dt class="text-[var(--text-muted)]">Open to</dt>
+          <dd class="text-right text-[var(--text)]">Internships · Roles</dd>
+        </div>
+      </dl>
+    </aside>
+  </div>
+</section>

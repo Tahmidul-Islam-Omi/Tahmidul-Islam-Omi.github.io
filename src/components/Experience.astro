@@ -1,0 +1,97 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { EXPERIENCE, EDUCATION, ACHIEVEMENTS } from "../data/experience";
+---
+
+<section id="experience" class="mx-auto max-w-5xl scroll-mt-20 px-6 py-24">
+  <SectionHeading num="04" title="Experience & Education" />
+
+  <div class="grid gap-12 md:grid-cols-2">
+    <!-- Work timeline -->
+    <div>
+      <h3
+        class="mb-6 font-mono text-xs uppercase tracking-widest text-accent-500"
+      >
+        Work
+      </h3>
+      <ol class="relative space-y-8 border-l border-[var(--border)] pl-6">
+        {
+          EXPERIENCE.map((job) => (
+            <li class="relative">
+              <span class="absolute -left-[1.65rem] top-1.5 size-2.5 rounded-full border-2 border-accent-500 bg-[var(--bg)]" />
+              <div class="flex flex-wrap items-baseline justify-between gap-x-3">
+                <h4 class="font-semibold text-[var(--text)]">{job.role}</h4>
+                {job.period && (
+                  <span class="font-mono text-xs text-[var(--text-faint)]">
+                    {job.period}
+                  </span>
+                )}
+              </div>
+              <p class="text-sm text-accent-400">{job.org}</p>
+              <ul class="mt-2 space-y-1.5 text-sm leading-relaxed text-[var(--text-muted)]">
+                {job.points.map((pt) => (
+                  <li>{pt}</li>
+                ))}
+              </ul>
+            </li>
+          ))
+        }
+      </ol>
+
+      <!-- Education -->
+      <h3
+        class="mb-6 mt-12 font-mono text-xs uppercase tracking-widest text-accent-500"
+      >
+        Education
+      </h3>
+      <ol class="relative space-y-8 border-l border-[var(--border)] pl-6">
+        {
+          EDUCATION.map((ed) => (
+            <li class="relative">
+              <span class="absolute -left-[1.65rem] top-1.5 size-2.5 rounded-full border-2 border-accent-500 bg-[var(--bg)]" />
+              <div class="flex flex-wrap items-baseline justify-between gap-x-3">
+                <h4 class="font-semibold text-[var(--text)]">{ed.degree}</h4>
+                <span class="font-mono text-xs text-[var(--text-faint)]">
+                  {ed.period}
+                </span>
+              </div>
+              <p class="text-sm text-accent-400">{ed.org}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+
+    <!-- Achievements -->
+    <div>
+      <h3
+        class="mb-6 font-mono text-xs uppercase tracking-widest text-accent-500"
+      >
+        Achievements
+      </h3>
+      <div class="space-y-4">
+        {
+          ACHIEVEMENTS.map((a) => (
+            <div
+              class={`rounded-2xl border p-5 ${
+                a.highlight
+                  ? "border-accent-500/40 bg-accent-500/10"
+                  : "border-[var(--border)] bg-[var(--surface)]"
+              }`}
+            >
+              <h4
+                class={`font-semibold ${a.highlight ? "text-accent-400" : "text-[var(--text)]"}`}
+              >
+                {a.highlight && "🏆 "}
+                {a.title}
+              </h4>
+              <p class="mt-1.5 text-sm leading-relaxed text-[var(--text-muted)]">
+                {a.detail}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

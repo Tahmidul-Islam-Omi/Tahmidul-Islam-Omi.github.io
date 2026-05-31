@@ -1,36 +1,31 @@
 /**
  * Central site configuration.
  *
- * This is the ONE place to edit your personal info. Every component reads
- * from here, so you don't have to hunt through files. Replace the
- * placeholders below with your real details in Phase 2.
+ * This is the ONE place to edit your personal info / links. Items marked
+ * TODO need a real URL from you — see the notes I left.
  */
 export const SITE = {
-  /** Your full name — used in the nav logo, footer, and page titles. */
-  name: "Your Name",
-  /** One-line role/value proposition shown in the hero. */
-  title: "Full-Stack Developer & CSE Student",
-  /** Short description for SEO + social link previews (~150 chars). */
+  name: "Tahmidul Islam Omi",
+  title: "Full-Stack & AI Developer",
   description:
-    "Full-stack developer building fast, reliable web apps. CSE student passionate about clean code and great user experiences.",
+    "Full-stack & AI developer and BUET CSE student. National Web Technologies champion representing Bangladesh at WorldSkills 2026. I build AI-powered, full-stack web applications.",
   /**
-   * Final deployed URL. Set this in Phase 5 when we configure GitHub Pages,
-   * e.g. "https://<username>.github.io". Used for canonical + Open Graph URLs.
+   * Final deployed URL. Set in Phase 5 for GitHub Pages.
+   * Likely "https://tahmidul-islam-omi.github.io" — confirm your exact username.
    */
-  url: "https://example.github.io",
-  /** Path to a social-share preview image in /public (1200x630 recommended). */
+  url: "https://tahmidul-islam-omi.github.io",
   ogImage: "/og.png",
-  /** Author location (optional — leave "" to hide). */
-  location: "",
+  location: "Dhaka, Bangladesh",
 } as const;
 
 /** Social / contact links. Leave a value as "" to hide that link. */
 export const SOCIALS = {
-  email: "tahmidulislamomi01@gmail.com",
-  github: "https://github.com/your-username",
-  linkedin: "https://linkedin.com/in/your-handle",
-  /** Optional: link to your resume PDF placed in /public (e.g. "/resume.pdf"). */
-  resume: "",
+  email: "tahmidulislamomi09@gmail.com",
+  // TODO: confirm your GitHub profile URL (guessed from your resume handle).
+  github: "https://github.com/Tahmidul-Islam-Omi",
+  // TODO: replace with your real LinkedIn URL.
+  linkedin: "https://linkedin.com/in/tahmidul-islam-omi",
+  resume: "/resume.pdf",
 } as const;
 
 /** Nav links — each `href` is an on-page anchor to a section id. */

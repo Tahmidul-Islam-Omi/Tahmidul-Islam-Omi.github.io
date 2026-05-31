@@ -1,0 +1,17 @@
+---
+interface Props {
+  /** Two-digit index, e.g. "01" */
+  num: string;
+  /** Section title, e.g. "About" */
+  title: string;
+}
+const { num, title } = Astro.props;
+---
+
+<div class="mb-10 flex items-center gap-4">
+  <h2 class="text-2xl font-semibold tracking-tight text-[var(--text)]">
+    <span class="font-mono text-base text-accent-500">{num}.</span>
+    {title}
+  </h2>
+  <span class="h-px flex-1 bg-[var(--border)]"></span>
+</div>
