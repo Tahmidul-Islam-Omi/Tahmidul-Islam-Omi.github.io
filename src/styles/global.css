@@ -1,3 +1,118 @@
 @import "tailwindcss";
 
-/* Design tokens (colors, fonts, motion) get defined here in Phase 1. */
+/* Self-hosted variable fonts (no external CDN calls = faster + private). */
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
+
+/*
+  Manual dark mode via a `.dark` class on <html> (set by the no-flash script
+  in Layout.astro). This lets us default to dark while still offering a toggle,
+  instead of being locked to the OS `prefers-color-scheme`.
+*/
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------ */
+/*  Design tokens — the single source of truth for the visual identity. */
+/*  Change the accent here and it updates everywhere.                   */
+/* ------------------------------------------------------------------ */
+@theme {
+  /* Type families */
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular",
+    monospace;
+
+  /* Accent — violet. Distinctive without being the overused cyan. */
+  --color-accent-300: #c4b5fd;
+  --color-accent-400: #a78bfa;
+  --color-accent-500: #8b5cf6;
+  --color-accent-600: #7c3aed;
+  --color-accent-700: #6d28d9;
+
+  /* Type scale (fluid-ish, rem-based) */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.875rem;
+  --text-3xl: 2.5rem;
+  --text-4xl: 3.25rem;
+  --text-5xl: 4.25rem;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Semantic surface tokens — flip with light/dark.                     */
+/*  Components reference these (e.g. bg-[var(--bg)]) so the whole site   */
+/*  switches theme from one place.                                      */
+/* ------------------------------------------------------------------ */
+:root {
+  --bg: #ffffff;
+  --bg-subtle: #f5f5f6;
+  --surface: #ffffff;
+  --border: #e5e5e7;
+  --text: #18181b;
+  --text-muted: #52525b;
+  --text-faint: #a1a1aa;
+}
+
+:root.dark {
+  --bg: #0a0a0b;
+  --bg-subtle: #111113;
+  --surface: #151517;
+  --border: #26262b;
+  --text: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --text-faint: #6b6b74;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base styles                                                         */
+/* ------------------------------------------------------------------ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* offset anchored scrolling so sticky nav doesn't cover headings */
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* smooth theme transition */
+    transition: background-color 0.3s var(--ease-out-soft),
+      color 0.3s var(--ease-out-soft);
+  }
+
+  /* Accent-colored, slightly inset focus ring for keyboard users */
+  :focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: var(--color-accent-500);
+    color: #fff;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

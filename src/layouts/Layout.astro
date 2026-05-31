@@ -1,0 +1,91 @@
+---
+import "../styles/global.css";
+import { SITE } from "../config";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${SITE.name} — ${SITE.title}`,
+  description = SITE.description,
+} = Astro.props;
+
+// Build absolute URLs for canonical + OG tags. Falls back gracefully if
+// `site` isn't set in astro.config yet (Phase 5).
+const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).href;
+const ogImageUrl = new URL(SITE.ogImage, Astro.site ?? SITE.url).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0a0a0b" />
+
+    <!-- Open Graph (LinkedIn, Facebook, etc.) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:site_name" content={SITE.name} />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!--
+      No-flash theme script: runs BEFORE first paint so the page never
+      flickers from light to dark. Defaults to dark; respects a saved choice.
+    -->
+    <script is:inline>
+      (() => {
+        const saved = localStorage.getItem("theme");
+        const dark = saved ? saved === "dark" : true; // default: dark
+        document.documentElement.classList.toggle("dark", dark);
+      })();
+    </script>
+  </head>
+
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-accent-600 focus:px-4 focus:py-2 focus:text-white"
+    >
+      Skip to content
+    </a>
+
+    <Nav />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- A small signature for the devs who open the console. -->
+    <script is:inline>
+      console.log(
+        "%c👋 Hey there, fellow developer!",
+        "color:#a78bfa;font-size:14px;font-weight:600",
+      );
+      console.log(
+        "%cLike what you see? Let's connect.",
+        "color:#a1a1aa;font-size:12px",
+      );
+    </script>
+  </body>
+</html>

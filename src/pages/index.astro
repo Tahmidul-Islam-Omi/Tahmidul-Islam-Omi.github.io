@@ -1,20 +1,81 @@
 ---
-import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import { SITE } from "../config";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Portfolio — setup check</title>
-	</head>
-	<body class="bg-neutral-950 text-neutral-100">
-		<main class="grid min-h-screen place-items-center">
-			<h1 class="text-3xl font-semibold tracking-tight text-violet-400">
-				Setup OK — Astro + Tailwind + React
-			</h1>
-		</main>
-	</body>
-</html>
+<Layout>
+  <!-- Anchor target for the "back to top" logo link. -->
+  <span id="top"></span>
+
+  <!--
+    PHASE 1 PREVIEW
+    This is a temporary design-system showcase so you can confirm the look &
+    feel (fonts, accent, dark/light toggle, spacing). In Phase 2 this whole
+    block gets replaced by the real Hero / About / Skills / Projects /
+    Experience / Contact sections.
+  -->
+  <section
+    class="mx-auto flex min-h-screen max-w-5xl flex-col justify-center px-6 py-32"
+  >
+    <p class="mb-4 font-mono text-sm text-accent-500">
+      // design system preview
+    </p>
+
+    <h1
+      class="text-4xl font-semibold tracking-tight text-[var(--text)] sm:text-5xl"
+    >
+      Minimal core,
+      <span class="text-accent-500">dark-mode techy</span> accent.
+    </h1>
+
+    <p class="mt-6 max-w-xl text-lg leading-relaxed text-[var(--text-muted)]">
+      Inter for body text, JetBrains Mono for accents, a violet highlight, and
+      a working light/dark toggle (top-right). This is the foundation — your
+      real content lands here in Phase&nbsp;2.
+    </p>
+
+    <!-- Type scale demo -->
+    <div class="mt-14 grid gap-8 sm:grid-cols-2">
+      <div>
+        <h2 class="mb-3 font-mono text-xs uppercase tracking-widest text-[var(--text-faint)]">
+          Type scale
+        </h2>
+        <div class="space-y-1 text-[var(--text)]">
+          <p class="text-3xl font-semibold tracking-tight">Heading 3xl</p>
+          <p class="text-2xl font-semibold tracking-tight">Heading 2xl</p>
+          <p class="text-xl font-medium">Heading xl</p>
+          <p class="text-base text-[var(--text-muted)]">Body base — readable.</p>
+          <p class="font-mono text-sm text-accent-500">mono.accent('sm')</p>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="mb-3 font-mono text-xs uppercase tracking-widest text-[var(--text-faint)]">
+          Accent &amp; surfaces
+        </h2>
+        <div class="flex flex-wrap gap-2">
+          <span class="size-9 rounded-lg bg-accent-300"></span>
+          <span class="size-9 rounded-lg bg-accent-400"></span>
+          <span class="size-9 rounded-lg bg-accent-500"></span>
+          <span class="size-9 rounded-lg bg-accent-600"></span>
+          <span class="size-9 rounded-lg bg-accent-700"></span>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <span class="rounded-md bg-accent-600 px-4 py-2 text-sm font-medium text-white">
+            Primary button
+          </span>
+          <span
+            class="rounded-md border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--text)]"
+          >
+            Secondary
+          </span>
+        </div>
+        <div
+          class="mt-4 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4 text-sm text-[var(--text-muted)]"
+        >
+          A surface card using semantic tokens — it flips with the theme.
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
