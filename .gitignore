@@ -20,6 +20,9 @@ pnpm-debug.log*
 # raw/original profile photo (only used locally to crop public/profile.webp)
 Profile_Pic.jpeg
 
+# raw resume source in repo root (the served copy lives at public/resume.pdf)
+/Tahmidul Islam Omi (Resume).pdf
+
 # macOS-specific files
 .DS_Store
 

@@ -1,18 +1,14 @@
 /**
  * Central site configuration.
  *
- * This is the ONE place to edit your personal info / links. Items marked
- * TODO need a real URL from you — see the notes I left.
+ * This is the ONE place to edit your personal info / links.
  */
 export const SITE = {
   name: "Tahmidul Islam Omi",
   title: "Full-Stack & AI Developer",
   description:
     "Full-stack & AI developer and BUET CSE student. National Web Technologies champion representing Bangladesh at WorldSkills 2026. I build AI-powered, full-stack web applications.",
-  /**
-   * Final deployed URL. Set in Phase 5 for GitHub Pages.
-   * Likely "https://tahmidul-islam-omi.github.io" — confirm your exact username.
-   */
+  /** Final deployed URL — used for canonical + Open Graph tags. */
   url: "https://tahmidul-islam-omi.github.io",
   ogImage: "/og.png",
   location: "Dhaka, Bangladesh",
