@@ -59,10 +59,4 @@ export const ACHIEVEMENTS = [
     detail: "Ranked in the top 10 out of 170 teams.",
     highlight: false,
   },
-  {
-    title: "120+ DSA Problems Solved",
-    detail:
-      "Solved 120+ problems on LeetCode & NeetCode across DP, graphs, greedy, trees, shortest paths, heaps, and more.",
-    highlight: false,
-  },
 ] as const;

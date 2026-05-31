@@ -1,8 +1,6 @@
 ---
 import SectionHeading from "./SectionHeading.astro";
 import { SITE } from "../config";
-
-// TODO: This bio was drafted from your resume — edit it to sound like you.
 ---
 
 <section id="about" class="mx-auto max-w-5xl scroll-mt-20 px-6 py-24">
@@ -32,18 +30,30 @@ import { SITE } from "../config";
           >national champion in Web Technologies</span
         >, and I'll be representing Bangladesh at <span class="text-accent-500"
           >WorldSkills 2026 in Shanghai</span
-        >. I love competitive problem-solving, having solved 120+ algorithm
-        problems along the way.
+        >.
       </p>
     </div>
 
-    <!-- Quick facts card -->
-    <aside
-      class="h-fit rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6"
-      data-reveal
-      data-reveal-delay="120"
-    >
-      <h3
+    <!-- Photo + Quick facts -->
+    <div class="space-y-6" data-reveal data-reveal-delay="120">
+      <div
+        class="group relative overflow-hidden rounded-2xl border border-[var(--border)] transition-colors hover:border-accent-500/50"
+      >
+        <img
+          src="/profile.webp"
+          alt="Tahmidul Islam Omi"
+          width="480"
+          height="600"
+          loading="lazy"
+          class="w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+      </div>
+
+      <!-- Quick facts card -->
+      <aside
+        class="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6"
+      >
+        <h3
         class="mb-4 font-mono text-xs uppercase tracking-widest text-[var(--text-faint)]"
       >
         Quick facts
@@ -66,6 +76,7 @@ import { SITE } from "../config";
           <dd class="text-right text-[var(--text)]">Roles · Freelance · OSS</dd>
         </div>
       </dl>
-    </aside>
+      </aside>
+    </div>
   </div>
 </section>

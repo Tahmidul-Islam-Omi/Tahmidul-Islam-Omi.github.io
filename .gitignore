@@ -17,6 +17,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# raw/original profile photo (only used locally to crop public/profile.webp)
+Profile_Pic.jpeg
+
 # macOS-specific files
 .DS_Store
 
