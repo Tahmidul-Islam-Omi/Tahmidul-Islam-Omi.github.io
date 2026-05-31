@@ -27,7 +27,10 @@ jobs:
 
       - name: Build Astro site
         uses: withastro/action@v3
-        # Defaults are correct for this project (npm, ./ root, dist output).
+        with:
+          # Astro 6 requires Node >=22.12 (see package.json engines).
+          # The action defaults to Node 20, which fails the build.
+          node-version: 22
 
   deploy:
     needs: build
