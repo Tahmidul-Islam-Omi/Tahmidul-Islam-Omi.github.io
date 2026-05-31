@@ -5,9 +5,10 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  // NOTE: set `site` to your final URL (e.g. https://<username>.github.io)
-  // in Phase 5 when we configure GitHub Pages. Needed for correct canonical
-  // URLs and Open Graph tags.
+  // Root user site (Tahmidul-Islam-Omi.github.io) is served at the domain
+  // root, so we set `site` and need NO `base` path. Used for canonical URLs
+  // and Open Graph tags.
+  site: "https://tahmidul-islam-omi.github.io",
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],

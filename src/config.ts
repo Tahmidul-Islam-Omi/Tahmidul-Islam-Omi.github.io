@@ -21,10 +21,8 @@ export const SITE = {
 /** Social / contact links. Leave a value as "" to hide that link. */
 export const SOCIALS = {
   email: "tahmidulislamomi09@gmail.com",
-  // TODO: confirm your GitHub profile URL (guessed from your resume handle).
   github: "https://github.com/Tahmidul-Islam-Omi",
-  // TODO: replace with your real LinkedIn URL.
-  linkedin: "https://linkedin.com/in/tahmidul-islam-omi",
+  linkedin: "https://www.linkedin.com/in/tahmidul-islam-omi-57a254244/",
   resume: "/resume.pdf",
 } as const;
 
