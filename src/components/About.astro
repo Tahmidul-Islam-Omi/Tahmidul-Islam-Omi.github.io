@@ -9,7 +9,10 @@ import { SITE } from "../config";
   <SectionHeading num="01" title="About" />
 
   <div class="grid gap-10 md:grid-cols-[3fr_2fr]">
-    <div class="space-y-4 text-lg leading-relaxed text-[var(--text-muted)]">
+    <div
+      class="space-y-4 text-lg leading-relaxed text-[var(--text-muted)]"
+      data-reveal
+    >
       <p>
         I'm a Computer Science & Engineering student at <span
           class="text-[var(--text)]">BUET</span
@@ -37,6 +40,8 @@ import { SITE } from "../config";
     <!-- Quick facts card -->
     <aside
       class="h-fit rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6"
+      data-reveal
+      data-reveal-delay="120"
     >
       <h3
         class="mb-4 font-mono text-xs uppercase tracking-widest text-[var(--text-faint)]"

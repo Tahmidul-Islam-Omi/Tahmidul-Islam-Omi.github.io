@@ -103,6 +103,25 @@
   }
 }
 
+/* ------------------------------------------------------------------ */
+/*  Scroll-reveal — elements with [data-reveal] start hidden + nudged  */
+/*  down, then animate in when the reveal.ts observer adds .is-visible. */
+/* ------------------------------------------------------------------ */
+@layer components {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.6s var(--ease-out-soft),
+      transform 0.6s var(--ease-out-soft);
+    will-change: opacity, transform;
+  }
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -114,5 +133,10 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  /* Never hide content from users who prefer reduced motion. */
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

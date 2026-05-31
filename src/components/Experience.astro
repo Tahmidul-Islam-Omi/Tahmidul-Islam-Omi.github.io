@@ -8,7 +8,7 @@ import { EXPERIENCE, EDUCATION, ACHIEVEMENTS } from "../data/experience";
 
   <div class="grid gap-12 md:grid-cols-2">
     <!-- Work timeline -->
-    <div>
+    <div data-reveal>
       <h3
         class="mb-6 font-mono text-xs uppercase tracking-widest text-accent-500"
       >
@@ -63,7 +63,7 @@ import { EXPERIENCE, EDUCATION, ACHIEVEMENTS } from "../data/experience";
     </div>
 
     <!-- Achievements -->
-    <div>
+    <div data-reveal data-reveal-delay="120">
       <h3
         class="mb-6 font-mono text-xs uppercase tracking-widest text-accent-500"
       >
@@ -73,7 +73,7 @@ import { EXPERIENCE, EDUCATION, ACHIEVEMENTS } from "../data/experience";
         {
           ACHIEVEMENTS.map((a) => (
             <div
-              class={`rounded-2xl border p-5 ${
+              class={`rounded-2xl border p-5 transition-transform duration-300 hover:-translate-y-0.5 ${
                 a.highlight
                   ? "border-accent-500/40 bg-accent-500/10"
                   : "border-[var(--border)] bg-[var(--surface)]"

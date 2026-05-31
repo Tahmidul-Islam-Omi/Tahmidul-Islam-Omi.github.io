@@ -8,8 +8,12 @@ import { SKILL_GROUPS } from "../data/skills";
 
   <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
     {
-      SKILL_GROUPS.map((group) => (
-        <div class="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5">
+      SKILL_GROUPS.map((group, i) => (
+        <div
+          class="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 transition-colors hover:border-accent-500/40"
+          data-reveal
+          data-reveal-delay={i * 80}
+        >
           <h3 class="mb-3 font-mono text-xs uppercase tracking-widest text-accent-500">
             {group.label}
           </h3>

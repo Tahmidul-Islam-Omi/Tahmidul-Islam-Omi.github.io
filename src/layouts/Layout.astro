@@ -76,6 +76,11 @@ const ogImageUrl = new URL(SITE.ogImage, Astro.site ?? SITE.url).href;
 
     <Footer />
 
+    <!-- Scroll-reveal animations (bundled + deferred by Astro). -->
+    <script>
+      import "../scripts/reveal.ts";
+    </script>
+
     <!-- A small signature for the devs who open the console. -->
     <script is:inline>
       console.log(
