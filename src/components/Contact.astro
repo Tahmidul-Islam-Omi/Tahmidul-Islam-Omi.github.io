@@ -58,8 +58,7 @@ import { SOCIALS } from "../config";
 
     <!--
       Contact form via Web3Forms (free, no backend, works on static hosts).
-      TODO: create a free access key at https://web3forms.com (uses your email,
-      no signup) and paste it into the hidden `access_key` field below.
+      The access_key below is a public client-side key — safe to commit.
     -->
     <form
       id="contact-form"
@@ -69,7 +68,7 @@ import { SOCIALS } from "../config";
       data-reveal
       data-reveal-delay="120"
     >
-      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+      <input type="hidden" name="access_key" value="e2172b35-4218-450a-855b-dd268a97c538" />
       <input type="hidden" name="subject" value="New message from your portfolio" />
       <!-- honeypot anti-spam -->
       <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
