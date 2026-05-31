@@ -85,6 +85,9 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    /* Guard against decorative elements (e.g. the hero glow) spilling past
+       the viewport edge and causing horizontal scroll on small screens. */
+    overflow-x: hidden;
     /* smooth theme transition */
     transition: background-color 0.3s var(--ease-out-soft),
       color 0.3s var(--ease-out-soft);
