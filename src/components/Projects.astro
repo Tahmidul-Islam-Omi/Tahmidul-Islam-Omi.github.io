@@ -9,36 +9,36 @@ const others = PROJECTS.filter((p) => !p.featured);
 <section id="projects" class="mx-auto max-w-5xl scroll-mt-20 px-6 py-24">
   <SectionHeading num="03" title="Projects" />
 
-  <!-- Featured projects: alternating image / text layout -->
+  <!-- Featured projects. With an image: alternating image/text layout.
+       Without an image: a clean full-width text entry (no placeholder). -->
   <div class="space-y-16">
     {
       featured.map((p, i) => (
         <article
-          class="grid items-center gap-6 md:grid-cols-2 md:gap-10"
+          class:list={[
+            "grid items-center gap-6 md:gap-10",
+            p.image && "md:grid-cols-2",
+          ]}
           data-reveal
         >
-          {/* Media */}
-          <div class={`group relative ${i % 2 === 1 ? "md:order-2" : ""}`}>
-            <div class="overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)]">
-              {p.image ? (
+          {/* Media (only when a screenshot exists) */}
+          {p.image && (
+            <div class:list={["group relative", i % 2 === 1 && "md:order-2"]}>
+              <div class="overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)]">
                 <img
                   src={p.image}
                   alt={`${p.name} screenshot`}
                   loading="lazy"
+                  width="1280"
+                  height="720"
                   class="aspect-video w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
-              ) : (
-                <div class="grid aspect-video w-full place-items-center bg-gradient-to-br from-accent-600/20 to-accent-500/5">
-                  <span class="font-mono text-sm text-[var(--text-faint)]">
-                    screenshot coming soon
-                  </span>
-                </div>
-              )}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Text */}
-          <div class={i % 2 === 1 ? "md:order-1" : ""}>
+          <div class:list={[p.image && i % 2 === 1 && "md:order-1"]}>
             <p class="mb-2 font-mono text-xs uppercase tracking-widest text-accent-500">
               Featured project
             </p>
