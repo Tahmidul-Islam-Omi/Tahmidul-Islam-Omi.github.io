@@ -8,6 +8,17 @@
 import sharp from "sharp";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { readFile } from "node:fs/promises";
+
+const championship = JSON.parse(
+  await readFile(new URL("../src/data/championship.json", import.meta.url), "utf8"),
+);
+const escapeXml = (text) => text.replace(/[&<>"']/g, (char) => ({
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;",
+})[char]);
+const championshipLabel = escapeXml(
+  `${championship.title} · ${championship.category} ${championship.result}`.toUpperCase(),
+);
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const out = join(__dirname, "..", "public", "og.png");
@@ -41,13 +52,13 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
     <tspan fill="#8b5cf6">&gt;</tspan> tahmidul-islam-omi.github.io
   </text>
 
-  <!-- WorldSkills pill -->
+  <!-- National championship pill -->
   <g>
-    <rect x="78" y="150" width="560" height="52" rx="26"
+    <rect x="78" y="150" width="880" height="52" rx="26"
       fill="#8b5cf6" fill-opacity="0.12" stroke="#8b5cf6" stroke-opacity="0.5" stroke-width="1.5" />
     <circle cx="108" cy="176" r="5" fill="#8b5cf6" />
     <text x="128" y="184" font-family="${sans}" font-size="22" font-weight="600" fill="#c4b5fd">
-      WORLDSKILLS 2026 · REPRESENTING BANGLADESH
+      ${championshipLabel}
     </text>
   </g>
 
@@ -58,12 +69,12 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
 
   <!-- Tagline -->
   <text x="80" y="420" font-family="${sans}" font-size="48" font-weight="600" letter-spacing="-1">
-    <tspan fill="#a78bfa">Full-Stack &amp; AI</tspan><tspan fill="#a1a1aa" dx="18">Developer</tspan>
+    <tspan fill="#a78bfa">Web, Mobile &amp; AI</tspan><tspan fill="#a1a1aa" dx="18">Developer</tspan>
   </text>
 
   <!-- Skills line -->
   <text x="80" y="528" font-family="${mono}" font-size="26" fill="#6b6b74">
-    React · Node · FastAPI · LangChain · Docker
+    React · Flutter · Node · FastAPI · LangChain
   </text>
 
   <!-- BUET note bottom-right -->

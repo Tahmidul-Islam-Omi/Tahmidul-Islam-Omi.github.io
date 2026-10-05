@@ -10,7 +10,7 @@ import { EXPERIENCE, EDUCATION, ACHIEVEMENTS } from "../data/experience";
     <!-- Work timeline -->
     <div data-reveal>
       <h3
-        class="mb-6 font-mono text-xs uppercase tracking-widest text-accent-500"
+        class="mb-6 font-mono text-xs uppercase tracking-widest text-[var(--accent-text)]"
       >
         Work
       </h3>
@@ -27,7 +27,7 @@ import { EXPERIENCE, EDUCATION, ACHIEVEMENTS } from "../data/experience";
                   </span>
                 )}
               </div>
-              <p class="text-sm text-accent-400">{job.org}</p>
+              <p class="text-sm text-[var(--accent-text)]">{job.org}</p>
               <ul class="mt-2 space-y-1.5 text-sm leading-relaxed text-[var(--text-muted)]">
                 {job.points.map((pt) => (
                   <li>{pt}</li>
@@ -40,7 +40,7 @@ import { EXPERIENCE, EDUCATION, ACHIEVEMENTS } from "../data/experience";
 
       <!-- Education -->
       <h3
-        class="mb-6 mt-12 font-mono text-xs uppercase tracking-widest text-accent-500"
+        class="mb-6 mt-12 font-mono text-xs uppercase tracking-widest text-[var(--accent-text)]"
       >
         Education
       </h3>
@@ -55,7 +55,7 @@ import { EXPERIENCE, EDUCATION, ACHIEVEMENTS } from "../data/experience";
                   {ed.period}
                 </span>
               </div>
-              <p class="text-sm text-accent-400">{ed.org}</p>
+              <p class="text-sm text-[var(--accent-text)]">{ed.org}</p>
             </li>
           ))
         }
@@ -65,7 +65,7 @@ import { EXPERIENCE, EDUCATION, ACHIEVEMENTS } from "../data/experience";
     <!-- Achievements -->
     <div data-reveal data-reveal-delay="120">
       <h3
-        class="mb-6 font-mono text-xs uppercase tracking-widest text-accent-500"
+        class="mb-6 font-mono text-xs uppercase tracking-widest text-[var(--accent-text)]"
       >
         Achievements
       </h3>
@@ -80,7 +80,7 @@ import { EXPERIENCE, EDUCATION, ACHIEVEMENTS } from "../data/experience";
               }`}
             >
               <h4
-                class={`font-semibold ${a.highlight ? "text-accent-400" : "text-[var(--text)]"}`}
+                class={`font-semibold ${a.highlight ? "text-[var(--accent-text)]" : "text-[var(--text)]"}`}
               >
                 {a.highlight && "🏆 "}
                 {a.title}

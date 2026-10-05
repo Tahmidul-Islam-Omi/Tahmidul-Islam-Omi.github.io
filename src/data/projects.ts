@@ -17,10 +17,34 @@ export interface Project {
   repo: string;
   demo: string;
   image: string;
+  imageWidth?: number;
+  imageHeight?: number;
   featured: boolean;
 }
 
 export const PROJECTS: Project[] = [
+  {
+    name: "Pulse — Engineering Health Platform",
+    description:
+      "An engineering health platform built under the supervision of Spectrum Software & Consulting Ltd., integrating GitHub, Jira, SonarQube, and GitHub Actions across five health categories. Includes asynchronous metric collection, AI-generated anonymous surveys, action logging, effectiveness reviews, and semantic search.",
+    stack: ["React", "TypeScript", "Express", "Supabase", "Redis", "BullMQ"],
+    repo: "https://github.com/Tahmidul-Islam-Omi/Capstone-Repo",
+    demo: "",
+    image: "/projects/pulse.webp",
+    featured: true,
+  },
+  {
+    name: "EngCoach — Adaptive English Learning App",
+    description:
+      "An Android app for Bangladeshi learners with adaptive grammar and vocabulary assessments, personalized practice, Bangla explanations, reassessment, and progress tracking. Integrates bdapps OTP verification and carrier billing, with Firebase accounts and progress synchronization.",
+    stack: ["Flutter", "Dart", "Riverpod", "Firebase", "PHP"],
+    repo: "https://github.com/Tahmidul-Islam-Omi/EngCoach",
+    demo: "",
+    image: "/projects/engcoach.webp",
+    imageWidth: 1100,
+    imageHeight: 2442,
+    featured: true,
+  },
   {
     name: "DisasterLens",
     description:

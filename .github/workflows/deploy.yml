@@ -25,9 +25,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build Astro site
+      - name: Validate and build Astro site
         uses: withastro/action@v3
         with:
+          # npm run build checks types before generating the Pages artifact.
           # Astro 6 requires Node >=22.12 (see package.json engines).
           # The action defaults to Node 20, which fails the build.
           node-version: 22

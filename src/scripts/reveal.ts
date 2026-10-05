@@ -9,7 +9,10 @@ function initReveal() {
   );
   if (els.length === 0) return;
 
-  if (!("IntersectionObserver" in window)) {
+  if (
+    typeof window.IntersectionObserver !== "function" ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
     els.forEach((el) => el.classList.add("is-visible"));
     return;
   }
@@ -20,14 +23,25 @@ function initReveal() {
         if (!entry.isIntersecting) continue;
         const el = entry.target as HTMLElement;
         const delay = Number(el.dataset.revealDelay ?? 0);
-        window.setTimeout(() => el.classList.add("is-visible"), delay);
+        window.setTimeout(() => {
+          el.classList.remove("reveal-pending");
+          el.classList.add("is-visible");
+        }, delay);
         obs.unobserve(el); // reveal once, then stop watching
       }
     },
     { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
   );
 
-  els.forEach((el) => observer.observe(el));
+  els.forEach((el) => {
+    // Keep content already on screen visible when the script starts.
+    if (el.getBoundingClientRect().top < window.innerHeight) {
+      el.classList.add("is-visible");
+      return;
+    }
+    observer.observe(el);
+    el.classList.add("reveal-pending");
+  });
 }
 
 // Run now if the DOM is ready, otherwise wait.

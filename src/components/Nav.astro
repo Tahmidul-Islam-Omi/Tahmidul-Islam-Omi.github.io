@@ -1,5 +1,9 @@
 ---
+import Icon from "./Icon.astro";
 import { SITE, NAV_LINKS } from "../config";
+
+const onHomePage = Astro.url.pathname === "/";
+const sectionHref = (href: string) => onHomePage ? href : `/${href}`;
 ---
 
 <header
@@ -11,10 +15,10 @@ import { SITE, NAV_LINKS } from "../config";
   >
     <!-- Logo / name -->
     <a
-      href="#top"
-      class="font-mono text-sm font-semibold tracking-tight text-[var(--text)] transition-colors hover:text-accent-500"
+      href={sectionHref("#top")}
+      class="font-mono text-sm font-semibold tracking-tight text-[var(--text)] transition-colors hover:text-[var(--accent-text)]"
     >
-      <span class="text-accent-500">&gt;</span>
+      <span class="text-[var(--accent-text)]">&gt;</span>
       {SITE.name}
     </a>
 
@@ -24,7 +28,7 @@ import { SITE, NAV_LINKS } from "../config";
         NAV_LINKS.map((link) => (
           <li>
             <a
-              href={link.href}
+              href={sectionHref(link.href)}
               class="text-sm text-[var(--text-muted)] transition-colors hover:text-[var(--text)]"
             >
               {link.label}
@@ -43,36 +47,9 @@ import { SITE, NAV_LINKS } from "../config";
         aria-label="Toggle color theme"
       >
         <!-- Sun (shown in dark mode) -->
-        <svg
-          class="hidden size-5 dark:block"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="12" r="4"></circle>
-          <path
-            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
-          ></path>
-        </svg>
+        <Icon name="sun" class="hidden size-5 dark:block" />
         <!-- Moon (shown in light mode) -->
-        <svg
-          class="size-5 dark:hidden"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-        </svg>
+        <Icon name="moon" class="size-5 dark:hidden" />
       </button>
 
       <!-- Mobile menu button -->
@@ -84,18 +61,7 @@ import { SITE, NAV_LINKS } from "../config";
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
-        <svg
-          class="size-5"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          aria-hidden="true"
-        >
-          <path d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
+        <Icon name="menu" class="size-5" />
       </button>
     </div>
   </nav>
@@ -110,7 +76,7 @@ import { SITE, NAV_LINKS } from "../config";
         NAV_LINKS.map((link) => (
           <li>
             <a
-              href={link.href}
+              href={sectionHref(link.href)}
               class="block py-2.5 text-sm text-[var(--text-muted)] transition-colors hover:text-[var(--text)]"
               data-mobile-link
             >

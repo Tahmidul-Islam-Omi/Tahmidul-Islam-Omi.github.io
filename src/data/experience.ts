@@ -1,11 +1,13 @@
+import { CHAMPIONSHIP } from "../config";
+
 /** Work experience — most recent first. */
 export const EXPERIENCE = [
   {
     role: "Software Developer",
-    org: "EdTech Startup",
-    period: "Apr 2026 – Present",
+    org: "Stealth EdTech Startup",
+    period: "Apr 2026 – July 2026",
     points: [
-      "Building an AI-powered Socratic learning platform that helps students learn through interactive questioning, adaptive assessments, and personalized feedback.",
+      "Developed an AI-powered Socratic learning platform that helps students learn through interactive questioning, adaptive assessments, and personalized feedback.",
     ],
   },
   {
@@ -13,6 +15,7 @@ export const EXPERIENCE = [
     org: "Edulytics",
     period: "Nov 2025 – Jan 2026",
     points: [
+      "Built the speaking module of an AI-based IELTS platform, integrating the Gemini Live API for real-time speech-to-speech conversation practice.",
       "Built and maintained frontend features for an AI-powered academic management platform using Next.js, Tailwind CSS, and TypeScript.",
       "Developed backend services with Express.js, MongoDB, and TypeScript.",
     ],
@@ -20,7 +23,7 @@ export const EXPERIENCE = [
   {
     role: "AI Intern",
     org: "SocioFi Technology",
-    period: "",
+    period: "Apr 2025 – Oct 2025",
     points: [
       "Developed AI agent projects leveraging RAG, LangChain, and LLM integration to demonstrate applied AI skills.",
     ],
@@ -32,7 +35,7 @@ export const EDUCATION = [
   {
     degree: "B.Sc. in Computer Science & Engineering",
     org: "Bangladesh University of Engineering & Technology (BUET)",
-    period: "Nov 2022 – Present",
+    period: "Nov 2022 – Expected June 2027",
   },
   {
     degree: "Higher Secondary Certificate (HSC)",
@@ -44,9 +47,8 @@ export const EDUCATION = [
 /** Achievements / highlights — the stand-out credentials. */
 export const ACHIEVEMENTS = [
   {
-    title: "WorldSkills 2026 — Shanghai",
-    detail:
-      "Champion at the National Skill Competition 2025 (Web Technologies); representing Bangladesh at WorldSkills 2026.",
+    title: CHAMPIONSHIP.title,
+    detail: `${CHAMPIONSHIP.result} in ${CHAMPIONSHIP.category}.`,
     highlight: true,
   },
   {

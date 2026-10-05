@@ -9,6 +9,7 @@ export const SKILL_GROUPS = [
     items: [
       "React",
       "Next.js",
+      "Flutter",
       "Node.js",
       "Express",
       "FastAPI",

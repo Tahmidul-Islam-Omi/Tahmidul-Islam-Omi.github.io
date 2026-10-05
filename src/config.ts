@@ -1,3 +1,7 @@
+import CHAMPIONSHIP from "./data/championship.json";
+
+export { CHAMPIONSHIP };
+
 /**
  * Central site configuration.
  *
@@ -5,9 +9,9 @@
  */
 export const SITE = {
   name: "Tahmidul Islam Omi",
-  title: "Full-Stack & AI Developer",
+  title: "Web, Mobile & AI Developer",
   description:
-    "Full-stack & AI developer and BUET CSE student. National Web Technologies champion representing Bangladesh at WorldSkills 2026. I build AI-powered, full-stack web applications.",
+    `Web, mobile & AI developer and BUET CSE student. ${CHAMPIONSHIP.result} at the ${CHAMPIONSHIP.title} in ${CHAMPIONSHIP.category}. I build AI-powered web and mobile applications.`,
   /** Final deployed URL — used for canonical + Open Graph tags. */
   url: "https://tahmidul-islam-omi.github.io",
   ogImage: "/og.png",
